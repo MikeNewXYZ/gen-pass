@@ -1,10 +1,11 @@
 import React from "react"
 import {
   ThemeProvider,
-  createMuiTheme
+  createMuiTheme,
+  responsiveFontSizes
 } from "@material-ui/core/styles"
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   palette: {
     primary: {
       light: "#3498db",
@@ -37,11 +38,13 @@ const theme = createMuiTheme({
       contrastText: "#ecf0f1"
     },
     background: {
-      paper: "#bdc3c7",
-      default: "#ecf0f1"
+      paper: "#ecf0f1",
+      default: "#3498db"
     }
   }
 })
+
+theme = responsiveFontSizes(theme)
 
 function GlobalTheme({children}) {
 
