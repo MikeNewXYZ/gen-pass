@@ -14,7 +14,8 @@ import {
 
 // Paper styles
 const StyPaper = styled(Paper)`
-  padding: 20px 20px;
+  padding: 10px 20px;
+  z-index: 1000;
   width: ${p => p.width};
 `
 // Paper component becomes animation ready
@@ -48,7 +49,7 @@ function Platform({children}) {
 
   return (
     <AniStyPaper 
-      elevation={3}
+      elevation={24}
       width={matchUpSM ? "fit-content" : "100%"}
       style={sprPaper}
     >

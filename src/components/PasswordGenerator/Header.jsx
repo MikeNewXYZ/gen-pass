@@ -5,7 +5,6 @@ import {
 } from "@material-ui/core"
 import {useTheme} from "@material-ui/core/styles"
 
-
 function Header({children}) {
 
   const theme = useTheme()
@@ -50,6 +49,7 @@ function Header({children}) {
       align="center"
       color="textPrimary"
       variant={variant}
+      style={{fontWeight: 400}}
     >
       {children}
     </Typography>

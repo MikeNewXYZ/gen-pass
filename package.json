@@ -10,9 +10,12 @@
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-scripts": "4.0.3",
     "react-spring": "^8.0.27",
+    "react-tsparticles": "^1.20.0",
     "styled-components": "^5.2.1",
+    "wait": "^0.4.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

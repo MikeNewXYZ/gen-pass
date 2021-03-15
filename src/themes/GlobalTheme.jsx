@@ -8,38 +8,44 @@ import {
 let theme = createMuiTheme({
   palette: {
     primary: {
-      light: "#3498db",
-      main: "#2980b9",
-      contrastText: "#ecf0f1"
+      light: "rgb(66,165,245)",
+      main: "rgb(30,136,229)",
+      dark: "rgb(13,71,161)",
+      contrastText: "rgb(245,245,245)"
     },
     secondary: {
-      light: "#34495e",
-      main: "#2c3e50",
-      contrastText: "#ecf0f1"
+      light: "rgb(236,64,122)",
+      main: "rgb(216,27,96)",
+      dark: "rgb(136,14,79)",
+      contrastText: "rgb(245,245,245)"
     },
     error: {
-      light: "#e74c3c",
-      main: "#c0392b",
-      contrastText: "#ecf0f1"
+      light: "rgb(239,83,80)",
+      main: "rgb(229,57,53)",
+      dark: "rgb(183,28,28)",
+      contrastText: "rgb(245,245,245)"
     },
     warning: {
-      light: "#e67e22",
-      main: "#d35400",
-      contrastText: "#ecf0f1"
+      light: "rgb(255,112,67)",
+      main: "rgb(244,81,30)",
+      dark: "rgb(191,54,12)",
+      contrastText: "rgb(245,245,245)"
     },
     info: {
-      light: "#95a5a6",
-      main: "#7f8c8d",
-      contrastText: "#212121"
+      light: "rgb(41,182,246)",
+      main: "rgb(3,155,229)",
+      dark: "rgb(1,87,155)",
+      contrastText: "rgb(33,33,33)"
     },
     success: {
-      light: "#2ecc71",
-      main: "#27ae60",
-      contrastText: "#ecf0f1"
+      light: "rgb(102,187,106)",
+      main: "rgb(67,160,71)",
+      dark: "rgb(27,94,32)",
+      contrastText: "rgb(245,245,245)"
     },
     background: {
-      paper: "#ecf0f1",
-      default: "#3498db"
+      paper: "rgb(245,245,245)",
+      default: "rgb(245,245,245)"
     }
   }
 })
