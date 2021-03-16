@@ -14,7 +14,7 @@ import {
 
 // Paper styles
 const StyPaper = styled(Paper)`
-  padding: 10px 20px;
+  padding: ${p => p.padding};
   z-index: 1000;
   width: ${p => p.width};
 `
@@ -52,6 +52,7 @@ function Platform({children}) {
       elevation={24}
       width={matchUpSM ? "fit-content" : "100%"}
       style={sprPaper}
+      padding={matchUpSM ? "10px 20px" : "10px 10px"}
     >
       <Grid
         container

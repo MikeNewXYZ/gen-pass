@@ -4,6 +4,7 @@ import Platform from "../components/PasswordGenerator/Platform"
 import Header from "../components/PasswordGenerator/Header"
 import Divider from "../components/PasswordGenerator/Divider"
 import Footer from "../components/PasswordGenerator/Footer/Footer"
+import Options from "../components/PasswordGenerator/Options/Options"
 
 function PasswordGenerator() {
 
@@ -14,7 +15,7 @@ function PasswordGenerator() {
           Password Generator
         </Header>
         <Divider />
-        <p>PasswordGenerator</p>
+        <Options />
         <Divider />
         <Footer />
       </Platform>
