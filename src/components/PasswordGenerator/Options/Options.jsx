@@ -2,6 +2,7 @@ import React from "react"
 import {Grid} from "@material-ui/core"
 import Submit from "./Submit"
 import ExcludedCharacters from "./ExcludeCharacters"
+import PasswordLength from "./PasswordLength"
 
 function Options() {
 
@@ -12,10 +13,9 @@ function Options() {
       justify="space-evenly"
       alignItems="center"
     >
+      <PasswordLength />
       <ExcludedCharacters />
-      <Submit
-        text="Generate"
-      />
+      <Submit text="Generate"/>
     </Grid>
   )
 }

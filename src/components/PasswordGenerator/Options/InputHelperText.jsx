@@ -1,34 +1,44 @@
 import React from "react"
-import {
-  Typography,
-  useMediaQuery
-} from "@material-ui/core"
-import {useTheme} from "@material-ui/core/styles"
+import {Typography} from "@material-ui/core"
 import styled from "styled-components"
+import {ReactFitty} from "react-fitty"
+import {
+  useSpring,
+  animated,
+  config
+} from "react-spring"
 
 const StyTypography = styled(Typography)`
   width: 100%;
   padding: 0px 5px;
   padding-top: 5px;
-  font-size: ${p => p.$fontSize};
   color: ${p => p.$fontColor};
 `
+const AnimatedStyTypography = animated(StyTypography)
 
 function InputHelperText({children, ...props}) {
 
   const {fontColor} = props
 
-  const theme = useTheme()
-  const matchUpSM = useMediaQuery(theme.breakpoints.up("sm"))
+  const sprTypography = useSpring({
+    color: fontColor ? fontColor : "inherit",
+    config: {...config.stiff}
+  })
 
   return (
-    <StyTypography
+    <AnimatedStyTypography
       align="left"
-      $fontSize={matchUpSM ? "20px" : "15px"}
-      $fontColor={fontColor}
+      style={sprTypography}
+      component="div"
     >
-      {children}
-    </StyTypography>
+      <ReactFitty 
+        minSize={14}
+        maxSize={24}
+        wrapText
+      >
+        {children}
+      </ReactFitty>
+    </AnimatedStyTypography>
   )
 }
 

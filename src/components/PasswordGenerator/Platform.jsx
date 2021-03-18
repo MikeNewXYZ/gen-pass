@@ -16,7 +16,7 @@ import {
 const StyPaper = styled(Paper)`
   padding: ${p => p.padding};
   z-index: 1000;
-  width: ${p => p.width};
+  width: 100%;
 `
 // Paper component becomes animation ready
 const AniStyPaper = animated(StyPaper)
@@ -50,7 +50,6 @@ function Platform({children}) {
   return (
     <AniStyPaper 
       elevation={24}
-      width={matchUpSM ? "fit-content" : "100%"}
       style={sprPaper}
       padding={matchUpSM ? "10px 20px" : "10px 10px"}
     >
