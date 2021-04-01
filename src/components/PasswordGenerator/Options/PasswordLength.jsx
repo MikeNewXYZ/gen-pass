@@ -1,10 +1,20 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import {Slider} from "@material-ui/core"
 import InputLabel from "./InputLabel"
 import InputContainer from "./InputContainer"
 import InputHelperText from "./InputHelperText"
 import styled from "styled-components"
 import Thumb from "./Thumb"
+import {
+  useCurrentOptions,
+  useNewOptions
+} from "../../../context/OptionsContext"
+import {useSetColors} from "../../../context/BackgroundContext"
+import {
+  useSpring,
+  animated,
+  config
+} from "react-spring"
 
 const StySlider = styled(Slider)`
   height: 10px;
@@ -24,7 +34,24 @@ const StySlider = styled(Slider)`
 
 function PasswordLength() {
 
+  const {passwordLength} = useCurrentOptions()
+  const newOptions = useNewOptions()
+  const setColors = useSetColors()
+
   const [value, setValue] = useState(64)
+
+  const sprSliderColor = useSpring({
+    color: passwordLength.color.slider,
+    config: {...config.slow}
+  })
+
+  useEffect(() => {
+    setColors([
+      passwordLength.color.background.color1,
+      passwordLength.color.background.color2
+    ])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [passwordLength])
 
   return (
     <InputContainer
@@ -34,16 +61,21 @@ function PasswordLength() {
       <InputLabel>
         Password Length
       </InputLabel>
-      <StySlider
-        min={1}
-        max={240}
-        valueLabelDisplay="auto"
-        value={value}
-        onChange={(e, value) => setValue(value)}
-        ThumbComponent={Thumb}
-      />
+      <animated.div style={sprSliderColor}>
+        <StySlider
+          min={1}
+          max={120}
+          valueLabelDisplay="auto"
+          value={value}
+          onChange={(e, value) => setValue(value)}
+          onChangeCommitted={(e, value) => newOptions("passwordLength", value)}
+          ThumbComponent={Thumb}
+          style={{color: "inherit"}}
+        />
+      </animated.div>
       <InputHelperText>
-        The longer the password the better
+        {passwordLength.helperText ||
+          "The longer the password the better."}
       </InputHelperText>
     </InputContainer>
   )

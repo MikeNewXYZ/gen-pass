@@ -10,6 +10,10 @@ import {
   animated,
   config
 } from "react-spring"
+import {
+  useCurrentOptions,
+  useNewOptions
+} from "../../../context/OptionsContext"
 
 const StyTextField = styled(TextField)`
   border-radius: 5px;
@@ -26,13 +30,13 @@ const StyTextField = styled(TextField)`
 `
 const AnimatedStyTextField = animated(StyTextField)
 
-function ExcludedCharacters() {
+function ExcludeCharacters() {
 
   const theme = useTheme()
+  const currentOptions = useCurrentOptions()
+  const newOptions = useNewOptions()
 
   const [value, setValue] = useState("")
-  const [helperText, setHelperText] = useState("Separate each character with a comma")
-  const [helperTextColor, setHelperTextColor] = useState(theme.palette.text.primary)
   const [hover, setHover] = useState(false)
   const [focus, setFocus] = useState(false)
 
@@ -56,21 +60,7 @@ function ExcludedCharacters() {
   }, [hover, focus])
 
   useEffect(() => {
-    const valueArray = value.split(",")
-
-    function checkIfValueIsValid() {
-      if (valueArray.find((e) => e.length > 1)) {
-        setHelperText("There can't be more than one character between each comma")
-        setHelperTextColor(theme.palette.error.main)
-        return;
-      }
-
-      setHelperText("Separate each character with a comma")
-      setHelperTextColor(theme.palette.text.primary)
-      return;
-    }
-    checkIfValueIsValid()
-
+    newOptions("excludeCharacters", value.split(","))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value])
 
@@ -95,12 +85,13 @@ function ExcludedCharacters() {
         onChange={(e) => setValue(e.target.value)}
       />
       <InputHelperText
-        fontColor={helperTextColor}
+        fontColor={currentOptions.excludeCharacters.color.text}
       >
-        {helperText}
+        {currentOptions.excludeCharacters.helperText ||
+          "Separate each character with a comma"}
       </InputHelperText>
     </InputContainer>
   )
 }
 
-export default ExcludedCharacters
+export default ExcludeCharacters

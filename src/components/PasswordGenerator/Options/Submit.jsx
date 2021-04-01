@@ -13,7 +13,7 @@ const AnimatedButton = animated(Button)
 
 function Submit({...props}) {
 
-  const {text} = props
+  const {text, click, disabled} = props
 
   const [hover, setHover] = useState(false)
 
@@ -30,6 +30,8 @@ function Submit({...props}) {
       style={sprButton}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onClick={click}
+      disabled={disabled}
     >
       <Typography variant="h3">
         {text}

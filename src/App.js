@@ -8,12 +8,12 @@ import ContextWrapper from "./context/ContextWrapper"
 function App() {
 
   return (
-    <ContextWrapper>
-      <GlobalTheme>
+    <GlobalTheme>
+      <ContextWrapper>
         <CssBaseline />
         <Home />
-      </GlobalTheme>
-    </ContextWrapper>
+      </ContextWrapper>
+    </GlobalTheme>
   )
 }
 

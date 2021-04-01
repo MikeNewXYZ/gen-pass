@@ -1,12 +1,12 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {
   Container as MuiContainer,
-  Grid
+  Grid,
+  useMediaQuery
 } from "@material-ui/core"
 import styled from "styled-components"
 
 const StyContainer = styled(MuiContainer)`
-  
   width: 50%;
 
   @media (max-width: 1400px) {
@@ -20,7 +20,6 @@ const StyContainer = styled(MuiContainer)`
   @media (max-width: 750px) {
     width: 100%;
   }
-
 `
 
 const StyGrid = styled(Grid)`
@@ -29,12 +28,14 @@ const StyGrid = styled(Grid)`
 
 function Container({children}) {
 
+  const matchUp500px = useMediaQuery("(min-height:500px)")
+
   return (
     <StyContainer>
       <StyGrid
         container
         direction="column"
-        justify="center"
+        justify={matchUp500px ? "center" : "flex-start"}
         alignItems="center"
       >
         {children}
