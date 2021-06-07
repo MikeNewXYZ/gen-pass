@@ -12,7 +12,7 @@ function PasswordGenerator() {
     <Container>
       <Platform>
         <Header>
-          Password Generator
+          GenPass
         </Header>
         <Divider />
         <Options />

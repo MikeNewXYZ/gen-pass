@@ -1,6 +1,6 @@
 {
-  "short_name": "Password Generator",
-  "name": "Password Generator",
+  "short_name": "GenPass",
+  "name": "GenPass",
   "icons": [
     {
       "src": "favicon.ico",
